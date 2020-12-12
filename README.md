@@ -29,3 +29,12 @@ Pod core-dns управляется шаблоном контроллера Repl
 Pod kube-proxy управляется шаблоном контроллера DaemonSet
 
 3. Создан контейнер с запуском веб сервиса allien/web:0.1, контейнер добавлен в под
+
+4. Создан контейнер allien/fronend:0.0.1 приложения Hipster Shop
+
+5. Сгенерирован манифест с помощью kubectr
+```
+kubectl run frontend --image allien/frontend:0.0.1 --restart=Never --dry-run -o yaml > frontend-pod.yaml
+```
+
+6. Добавлен манифест frontend-pod-healthy.yaml, в котором контейнер запускается в статусе RUNNING. Проблема - не хватало переменных окружения для старта контейнера. Добавлены полуфейковые переменные в манифест
