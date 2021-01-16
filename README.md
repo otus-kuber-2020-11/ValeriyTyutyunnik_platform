@@ -38,3 +38,16 @@ kubectl run frontend --image allien/frontend:0.0.1 --restart=Never --dry-run -o 
 ```
 
 6. Добавлен манифест frontend-pod-healthy.yaml, в котором контейнер запускается в статусе RUNNING. Проблема - не хватало переменных окружения для старта контейнера. Добавлены полуфейковые переменные в манифест
+
+## kubernetes-security ДЗ-3
+- Создание и выдача ролей.
+### task-01
+- Выдача роли admin в рамках кластера сервис-аккаунту bob
+- Сервис аккаунт dave без доступа к кластеру
+### task-2
+- Создан namespace prometheus, и сервис аккаунт carol в ns prometheus
+- Всем service account в ns prometheus выданы права на get/list/watch в отношении Pods кластера
+### task-03
+Создан namespace dev, в рамках которого:
+- Создан Service account jane c ролью admin в рамках dev
+- Создан Service account ken с ролью view в рамках dev
